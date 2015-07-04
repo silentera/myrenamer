@@ -1,5 +1,6 @@
 #!/bin/bash
 # This is version 2 of MyRenamer
+# Just a test to see an update to Git
 
 function HELP {
 	echo "-x: unrar and process media files"
