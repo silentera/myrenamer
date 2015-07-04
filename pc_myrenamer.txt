@@ -1,0 +1,63 @@
+# psuedo-code for media renamer; myrenamer v1.2
+
+getopts xrmsh
+	x == unrar and process media files
+	r == remove .r*, .nfo, and .sfv files
+	m == process media files
+	s == process sub files
+	h == help info on the above
+
+if help == h then
+	echo "-x: unrar and process media files"
+	echo "-r: remove .r*, .nfo, and .sfv files"
+	echo "-m: process media files"
+	echo "-s: process sub files"
+	echo "-m: process media files"
+fi
+
+if r == 0 then
+	check there are any rar files with find
+	if rar files == 0 then
+		echo "No rar files found."
+		exit
+	elseif r -eg 1 then
+		echo "There is $count file(s) to be rar'd. Unraring now..."
+		rarFiles=$(find rar files)
+		unrar x $rarFiles
+		echo "Unraring done. Removing .r*, .nfo, and .sfv files..."
+		rm *.r., .nfo, and .sfv files
+		echo "Done."
+	fi
+
+fileCount=$(find media files mkv, avi, or mp4)
+
+	if fileCount == 1 then
+		mediaFile=$(find media file)
+		fileName=$(remove ./ from beginning of file name)
+	elif fileCount == 0 then
+		echo "No media files found."
+		exit
+	else
+		echo "Too many media files found:"
+		echo $(media file count)
+		exit
+	fi
+
+	echo "Media file found: $fileName"
+	read -p "Do you want to rename this one [Y/N]?" goOn
+	goOn=$(echo $goOn | make input lowercase)
+	if goOn == n then
+		echo "Then try again."
+		exit
+	fi
+
+	read -p "Enter search name: " searchName
+	read -p "Enter database [1=TheMovieDB, 2=TheTVDB, 3=TheAnineDB]: " database
+	if database == 1 then
+		database="TheMovieDB"
+	elif database == 2 then
+		database="TheTVDB"
+	elif database == 3 then
+		database="TheAnimeDB"
+	else
+		echo "Wrong selection, try again"
